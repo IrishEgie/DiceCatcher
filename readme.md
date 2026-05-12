@@ -45,14 +45,3 @@ The rules are simple: dice fall from the top of the screen, and you must catch t
 All visual assets in DiceCatcher were created using [Your Pixel Art Tool, e.g., Aseprite]. I focused on creating clear, readable silhouettes for the dice to ensure the gameplay feels fair and responsive.
 
 ---
-
-### Tips for your GitHub:
-
-1. **Screenshots:** Just like with Tappy, add an `img` folder and include a GIF of the dice falling. It makes the repository much more attractive to recruiters or other devs.
-2. **License:** Consider adding a `LICENSE` file (like MIT) if you want people to be able to learn from or use your code.
-3. 
-**The Score Logic:** Since you already have a `ScoreManager` from the Tappy project , you can easily drop that same logic into DiceCatcher to handle the high scores! 
-
-
-
-**How does the scoring work in DiceCatcher—do you get more points for catching a '6' than a '1'?**
