@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://bhytlmcyhr7lk"]
+
+[ext_resource type="Script" uid="uid://r6o3468j38t7" path="res://Scripts/Game.gd" id="1_j5yw3"]
+[ext_resource type="Texture2D" uid="uid://dg2ykfokjw6nv" path="res://Assets/gem_bg.png" id="2_7lihs"]
+[ext_resource type="PackedScene" uid="uid://bwi54w2adx1vg" path="res://Scenes/Fox.tscn" id="3_j5yw3"]
+[ext_resource type="AudioStream" uid="uid://rxwcie4b6wbb" path="res://Assets/tetris.mp3" id="4_b2bpf"]
+[ext_resource type="AudioStream" uid="uid://c0orcx0ncovyq" path="res://Assets/game_over.wav" id="5_7lihs"]
+[ext_resource type="FontFile" uid="uid://04gnevw0l7nn" path="res://LuckiestGuy-Regular.ttf" id="6_7lihs"]
+
+[node name="Game" type="Node2D" unique_id=555279391 groups=["stoppable"]]
+process_mode = 3
+script = ExtResource("1_j5yw3")
+
+[node name="GemBg" type="Sprite2D" parent="." unique_id=451669513]
+texture_filter = 1
+position = Vector2(576, 325)
+scale = Vector2(6.1203713, 6.1203704)
+texture = ExtResource("2_7lihs")
+
+[node name="WaveTimer" type="Timer" parent="." unique_id=1956323251]
+process_mode = 1
+wait_time = 2.0
+autostart = true
+
+[node name="Fox" parent="." unique_id=1571848500 instance=ExtResource("3_j5yw3")]
+z_index = 1
+position = Vector2(549, 568)
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="." unique_id=1417773430]
+stream = ExtResource("4_b2bpf")
+autoplay = true
+
+[node name="GameOverSound" type="AudioStreamPlayer2D" parent="." unique_id=1025966068]
+process_mode = 3
+stream = ExtResource("5_7lihs")
+volume_db = -8.0
+
+[node name="Score" type="Label" parent="." unique_id=2183850]
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 71.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0.92099476, 0.9209946, 0.9209946, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("6_7lihs")
+theme_override_font_sizes/font_size = 24
+text = "Score"
+
+[connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]

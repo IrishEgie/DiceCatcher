@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cnnq8824yg5bk"]
+
+[ext_resource type="Script" uid="uid://bj4p8usa3h7nj" path="res://Scripts/Dice.gd" id="1_dcpc8"]
+[ext_resource type="Texture2D" uid="uid://bsnvq57cc1nvl" path="res://Assets/dice_d20.png" id="2_dcpc8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wpqjs"]
+radius = 50.01
+
+[node name="Dice" type="Area2D" unique_id=104437723 groups=["dice", "stoppable"]]
+process_mode = 1
+collision_layer = 2
+script = ExtResource("1_dcpc8")
+
+[node name="Dice" type="Sprite2D" parent="." unique_id=71038757]
+scale = Vector2(4, 4)
+texture = ExtResource("2_dcpc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1998134989]
+shape = SubResource("CircleShape2D_wpqjs")
